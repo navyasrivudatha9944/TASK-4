@@ -1,0 +1,56 @@
+EnableWebSecurity
+@Configuration
+public class SecurityConfig {
+Bean
+public SecurityfilterChain filterChain(HttpSecurity http) throws Exception (
+http
+.csrf(csrf -> csrf.disable())
+)
+authorizeHttpRequests (auth-> auth
+requestMatchers("/", "/login").permitAll()
+requestMatchers("/contacts/**").hasRole("ADMIN")
+anyRequest().authenticated()
+formLogin(form form.loginPage("/login").permitAll())
+logout (logout logout.logoutUrl("/logout").logoutSuccessUrl("/"));
+return http.build();
+weasi
+}
+public PasswordEncoder passwordEncoder() {
+return new BCryptPasswordEncoder();
+@Bean
+public UserDetailsService userDetailsService (PasswordEncoder encoder) (
+UserDetails admin User.withUsername("admin")
+password(encoder.encode("admin@123"))
+.roles("ADMIN")
+.build();
+return new InflemoryUserDetailsManager (admin);
+Java
+@RestController
+@RequestMapping("/contacts")
+public class ContactController {
+private final ContactRepository repo;
+public ContactController (ContactRepository repo) (
+}
+this.repo геро
+@GetMapping
+public List<Contact> getAll() {
+return repo.findAll(); // Only accessible if logged in as ADPIN
+Frontend Example (contacts.html)
+<table id="tb1" border="1">
+<thead><tr><th>ID</th><th>ame</th><th>Email</th><th>Message</th></tr></thead>
+<tbody></tbody>
+</table>
+<script>
+fetich("/contacts")
+then(res => (
+if (res.status200) return res.json();
+else (alert("Please login as admin'); location.href="/login';}
+})
+then (rows->{
+const body document.querySelector('#tol thody");
+rous.forEach(c
+body.InsertAdjacentHTPL (beforeend",
+"<tr><td>$(c.id)</td><td>$[c.name)</td><td>5[c.email]</td><td>5[c.message)</td></tr>");
+));
+});
+</script>

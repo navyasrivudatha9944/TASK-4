@@ -1,0 +1,88 @@
+python
+Import csv, os
+from datetime import datetime
+CSV FILE "expenses.csv"
+HEADERS ["id", "date", "description", "amount", "category"]
+def ensure csv():
+"""Create expenses.csv with header row if missing"
+if not os.path.exists(CSV FILE):
+with open(CSV FILE, "w", newline-"", encoding="utf-8") as f
+csv.writer(f).writerow (HEADERS)
+python
+def add expense (desc, amount, category):
+"""Add a new expense row to CSV
+try:
+amt float(amount)
+except ValueError:
+print("X Amount must be a number.")
+return
+row [
+str(int(datetime.now().timestamp() * 1000)),
+#unique id
+datetime.now().strftime("%Y-%m-%d"),
+#date
+desc.strip(),
+f"(amt:.2f}",
+category.strip().title()
+with open(CSV_FILE, "a", newline", encoding="utf-8") as f:
+csv.writer(f).writerow(row)
+print(" Expense added successfully.")
+python
+def view_all():
+"""Read and display all expenses"""
+ensure_csv()
+with open(CSV_FILE, "r", encoding="utf-8") as f:
+rows list(csv.reader(f))
+if len(rows) <= 1:
+print("No expenses found.")
+return
+total = 0
+for rin rows [1:]:
+print(f"[r[0]) | ([1]) | ([2]) ([3]) | (r[4]}")
+total float(r[3])
+print(f"\nTotal spent: {total:.2f}")
+python
+def search_category(cat):
+"""Filter expenses by category"""
+ensure_csv()
+with open(CSV_FILE, "r", encoding="utf-8") as f:
+rows = list(csv.reader(f)) [1:]
+results = [r for rin rows if r[4].lower() == cat.lower()]
+if not results:
+print("No records found for category:", cat)
+return
+for r in results:
+print(f"[r[0]) | ([1]) (r[2]] [[3]] | [r[4]}")
+python
+def monthly total (month):
+**"Calculate total spending for a given month (YYYY-MM)
+ensure_csv()
+with open(CSV FILE, "r", encoding="utf-8") as f:
+rows = list(csv.reader(f)) [1:]
+filtr forr in rows if r[1].startswith(month)]
+if not filt:
+print("No records for month:", month)
+return
+total sum(float(r[3]) for r in filt)
+print (f Monthly total for (month): (total:.2f}")
+Python
+def run():
+ensure_csv()
+while True:
+print("\n) Add Expense\n2) View All\n3) Search by Category\n4) Monthly Total\n5) Exit")
+choice Input("Choose: ").strip()
+if choice "T":
+add expense (input("Description: "), input("Amount: "), input("Category: "))
+elif choice2":
+view all()
+elif choice":
+search_category(Input("Category: "))
+elif choice"4":
+monthly total(Input("Month (YYYY-۱۳۴۱): "))
+elif choice"5":
+print("Goodbye!"); break
+else:
+print("Invalid choice. Try again.")
+python
+1f name "main":
+run()

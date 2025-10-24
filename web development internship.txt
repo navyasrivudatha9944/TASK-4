@@ -1,0 +1,36 @@
+html
+<div class="blog-card">
+<h2>My First Blog</h2>
+<p class="date">Published on: Oct 4, 2025</p>
+<p class="excerpt">This is a short summary of the blog content...</p>
+<a href="blog1.html">Read More</a>
+</div>
+Blog Detail Page (blog1.html):
+html
+<h1>My First Blog</h1>
+<p class="date">Published on: Oct 4, 2025</p>
+<img src="blog-image.jpg" alt="Blog Image" />
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. This is the full content...</p>
+Search Filter (JavaScript):
+function searchPosts() (
+const query document.getElementById("searchBox").value.toLowerCase();
+document.querySelectorAll(".blog-card").forEach(card => {
+const title card.querySelector("h2").textContent.toLowerCase();
+card.style.display title. includes (query)?"": "none";
+});
+}
+235
+.blog-card [
+border: 1px solid #ddd;
+padding: 15px;
+margin: 15px 0;
+border-radius: 8px;
+transition; box-shadow 0.3s;
+}
+blog-card:hover {
+box-shadow: 8px rgba(0,0,0,0.2);
+)
+.date {
+color: gray;
+font-size: 0.9em;
+}

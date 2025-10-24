@@ -1,0 +1,50 @@
+import pandas as pd
+Import numpy as np.
+Import seaborn es sns
+Import matplotlib.pyplot as pit
+sns.set() Apply Seaborn styling
+Step 2: Load the Dataset
+(Titanic example-change filename if using Student dataset)
+df pd.read cpy("titanic.cov")
+print(df.head()) #prection first 5 rows
+print(df.info()) #check columns & mult values
+Step 3: Data Cleaning
+a Plii missing Age values with mention
+of "Age] of ["Age].filina(df["Age"].median())
+#FELL missing Embareed with mode
+of "Embarked of Embarked"].filina(df["Embarked"].mode()[0])
+Dene unused colum
+of df.drop(columns["Cabin"], errors"ignore")
+Step 4: Feature Engineering
+sython
+Add FamilySize Stbsp Parch
+df ["FamilySize"] df["Sih5p"] df["Parch"]
+#Creute Age Groups
+df ["AgeGroup"] pd.cut(
+df("Age", bins-[0,12,18,38,50,801, labels ["Child", "Teen", "Young Adult", "Adult", "Senior"]
+Step 5: Visualizations
+Histogram Age Distribution
+python
+sns.histplot(df["Age"), brins-20, kde True).
+plt.title("Age Distribution")
+plt.show()
+Bar Chart - Survival Rate by Sex
+python
+sns.barplot(x="Sex", y="Survived", data-df)
+plt.title("Survival Rate by Gender")
+plt.show()
+Boxplot - Fare by Passenger Class
+Python
+sns.boxplot(x="Pclass", y="Fare", data df)
+plt.title("Fare Distribution by Class")
+plt.show()
+Scatterplot - Age vs. Fare
+python
+sns.scatterplot(x="Age", y="Fare", hue="Survived", data-df, alpha-8.7)
+plt.title("Age vs Fare (colored by Survival)")
+plt.show()
+Heatmap - Correlations
+Python
+sns.heatmap(df.corr(), annot True, cmap-"coolwarm")
+plt.title("Correlation Heatmap")
+plt.show()

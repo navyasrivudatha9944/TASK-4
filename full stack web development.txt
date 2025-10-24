@@ -1,0 +1,50 @@
+Sample Starter Code (Simplified Snippets)
+HTML (Basic Layout)
+html
+<div class="container">
+<h2>Task Manager Dashboard</h2>
+<input type="text" id="taskInput" placeholder "Enter a task">
+<button onclick="addTask()">Add Task</button>
+<input type="text" id="searchBox" placeholder "Search tasks..." onkeyup="searchTasks()">
+<ul id="tasklist"></ul>
+</div>
+JavaScript (CRUD Functions)
+Jet tasks JSON.parse(localStorage.getItem("tasks"))||13;
+function addTask() (
+const input document.getElementById("taskInput");
+if (linput.value) return alert("Task cannot be empty!"
+tasks.push({ id: Date.now(), namer input.value));
+localStorage.setItem("tasks", 350N.stringify(tasks));
+input.value
+displayTasks();
+function displayTasks() (
+const list document.getElementById("taski ist");
+list.innerHTML
+tasks.forEach(t => [
+list.innerHTML(11)5(t.name)
+<button onclick="deleteTask(St.id))">Delete</button>
+<11>;
+function deleteTask(id) (
+tasks tasks.filter(t t.id != id);
+localStorage.setItem("tasks", 1500.stringify(tasks));
+display Tasks();
+function searchTasks() (
+1
+const query document.getElementById("searchllow").value.toLowerCase();
+document.querySelectorAll("#taskList 11").forEach(item ->
+item.style.display = item.textContent.toLowerCase().Includes (query)"none";
+displaytasks(); 
+CSS (Simple Styling)
+container {
+max-width: 500px;
+margin: auto;
+text-align: center;
+ul 11 (
+list-style: none;
+margin: 5px 0;
+padding: 10px;
+background: #f4f4f4;
+border-radius: 5px;
+}
+button (
+margin-left: 10px;

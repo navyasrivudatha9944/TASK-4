@@ -1,0 +1,33 @@
+1. Average Grade by Gender
+SELECT s gender, AVG(e-grade) AS avg grade
+FROM students s
+20IN enrollments e ON s.ide.student_id
+GROUP BY sgender;
+2. Pass Rate per Course
+SELECT c.name AS course,
+SUM(CASE WHEN e.grade 40 THEN 1 ELSE END) 100.0/ count(*) AS pass rate
+FROM enrollments e
+JOIN courses c ON course idc.id
+GROUP BY c.name;
+3. Top 3 Students Overall
+sal
+SELECT s.name, AVG(e.grade) AS avg grade
+FROM enrollments e
+201N students s ON e.student ids.id
+GROUP BY s.name
+ORDER BY avg grade DESC
+LIMIT 3
+4. Students in Multiple Courses
+SELECT s.name, COUNT(e.course_id) AS courses_enrolled
+FROM enrollments e
+20IN students s ON e.student id = s.id
+GROUP BY s.id, s.name
+HAVING COUNT(e.course_id) > 2;
+5. Improvement Report (if semester column exists)
+SELECT el. student id, s.name,
+el.grade AS grade_semi, e2.grade 45 grade sema
+FROM enrollments el
+201N enrollments e2 ON el student_id e2.student_id AND e2.semester Semester 2
+JOIN students s ON el.student id s.id
+WHERE el.semester Semester 1"
+AND e2.grade > el.grade;
